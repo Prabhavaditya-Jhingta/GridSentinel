@@ -1,0 +1,10 @@
+# PUBLISHED_SCHEDULE input. Fill from your state electricity regulator's tariff order.
+# The app refuses to invent tariffs: until this file is valid, the market source is FAILED
+# and control cycles hold the safe state (error E3).
+order_citation: "LOCAL TEST ONLY - not a real tariff order"
+order_url: "https://example.com/local-test"
+bands:
+  - {start: "00:00", end: "10:00", rate_inr_per_kwh: 6.0, is_peak: false}
+  - {start: "10:00", end: "18:00", rate_inr_per_kwh: 8.0, is_peak: true}
+  - {start: "18:00", end: "24:00", rate_inr_per_kwh: 6.0, is_peak: false}               # REQUIRED: bands must cover 00:00-24:00 in facility local time, e.g.
+                        # - {start: "00:00", end: "06:00", rate_inr_per_kwh: <from order>, is_peak: false}
